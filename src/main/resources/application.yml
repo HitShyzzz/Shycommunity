@@ -24,6 +24,15 @@ spring:
       maximum-pool-size: 15
       minimum-idle: 5
       idle-timeout: 30000
+#邮箱设置 MailProperties
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 2497141901@qq.com
+    password: auenahfcnbzydhgj #不是QQ邮箱的登录密码，而是第三方客户端登录QQ邮箱授权的密码！
+    protocol: smtps
+    default-encoding: UTF-8
+
 # mybatis匹配
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -34,6 +43,9 @@ mybatis:
 #日志
 logging:
   level:
-    com.nowcoder.community.dao: debug
+    com.nowcoder.community: debug
+#邮箱设置 MailProperties
+
+
 
 

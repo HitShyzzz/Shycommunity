@@ -3,11 +3,19 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/CommunityApplication.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/AlphaController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/HomeController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/dao/DiscussPostMapper.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/dao/UserMapper.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/entity/DiscussPost.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/entity/User.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/AlphaService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/DiscussPostService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/UserService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/util/MailClient.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/application.yml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/CommunityApplicationTests.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/LoggerTests.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/MailTests.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/MapperTests.java" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
