@@ -1,9 +1,9 @@
 package com.nowcoder.community;
 
 import com.nowcoder.community.util.MailClient;
-import org.apache.catalina.loader.WebappClassLoader;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.thymeleaf.TemplateEngine;
@@ -17,13 +17,13 @@ import org.thymeleaf.context.Context;
  * @Date: 2022/08/03/17:56
  * @Description:
  */
+
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
 public class MailTests {
 
     @Autowired
     private MailClient mailClient;
-
     @Autowired
     private TemplateEngine templateEngine;
 

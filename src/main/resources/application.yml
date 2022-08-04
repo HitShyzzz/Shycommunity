@@ -44,7 +44,10 @@ mybatis:
 logging:
   level:
     com.nowcoder.community: debug
-#邮箱设置 MailProperties
+#community
+community:
+  path:
+    domain: http://localhost:8080
 
 
 

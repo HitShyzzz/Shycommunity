@@ -1,5 +1,6 @@
 package com.nowcoder.community;
 
+import org.apache.ibatis.executor.loader.cglib.CglibProxyFactory;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
