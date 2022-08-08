@@ -1,5 +1,6 @@
 package com.nowcoder.community.dao;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Repository;

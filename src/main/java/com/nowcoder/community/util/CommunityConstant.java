@@ -9,14 +9,14 @@ package com.nowcoder.community.util;
  */
 public interface CommunityConstant {
 
-    // ����ɹ�
+    // 激活成功
     int ACTIVATION_SUCCESS=0;
-    // �ظ�����
+    // 重复激活
     int ACTIVATION_REPEAT=1;
-    // ����ʧ��
+    // 激活失败
     int ACTIVATION_FAILURE=2;
-    // Ĭ��״̬�ĵ�¼ƾ֤�ĳ�ʱʱ��
+    // 默认状态的登录凭证的超时时间
     int DEFAULT_EXPIRED_SECONDS=3600*12;
-    // ��ס��״̬�µĵ�¼ƾ֤��ʱʱ��
+    // 记住我状态下的登录凭证超时时间
     int REMEMBERME_EXPIRED_SECONDS=3600*24*100;
 }

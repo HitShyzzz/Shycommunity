@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,12 +37,12 @@ public class UserService implements CommunityConstant {
 
     @Autowired
     private TemplateEngine templateEngine;
-    @Autowired
-    private LoginTicketMapper loginTicketMapper;
     @Value("${community.path.domain}")
     private String domain;
     @Value("${server.servlet.context-path}")
     private String contextPath;
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
 
     public User findUserById(int id){
         return userMapper.selectById(id);
@@ -152,5 +153,12 @@ public class UserService implements CommunityConstant {
 
     }
 
+    public LoginTicket findLoginTicket(String ticket){
+        return loginTicketMapper.selectByTicket(ticket);
+    }
+
+    public int updateHeader(int userId,String headerUrl){
+        return userMapper.updateHeader(userId,headerUrl);
+    }
 
 }

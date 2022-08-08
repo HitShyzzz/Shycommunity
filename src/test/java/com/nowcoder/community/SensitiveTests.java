@@ -1,9 +1,9 @@
 package com.nowcoder.community;
 
+import com.nowcoder.community.util.SensitiveFilter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -12,21 +12,22 @@ import org.springframework.test.context.junit4.SpringRunner;
  * Created with IntelliJ IDEA.
  *
  * @Author: shy
- * @Date: 2022/08/03/16:01
+ * @Date: 2022/08/08/22:15
  * @Description:
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
-public class LoggerTests {
-    private static final Logger logger =LoggerFactory.getLogger(LoggerTests.class);
+public class SensitiveTests {
+    @Autowired
+    private SensitiveFilter sensitiveFilter;
 
     @Test
-    public void testLogger(){
-        System.out.println(logger.getName());
-        logger.debug("debug log");
-        logger.info("debug log");
-        logger.warn("warn log");
-        logger.error("error log");
+    public void testSensitiveFilter() {
+        String text = "这里可以赌博，可以嫖娼，可以吸毒，可以开票，哈哈哈！";
+        text = sensitiveFilter.filter(text);
+        System.out.println(text);
     }
+
+
 }
