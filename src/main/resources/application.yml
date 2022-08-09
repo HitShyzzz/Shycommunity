@@ -29,7 +29,7 @@ spring:
     host: smtp.qq.com
     port: 465
     username: 2497141901@qq.com
-    password: auenahfcnbzydhgj #不是QQ邮箱的登录密码，而是第三方客户端登录QQ邮箱授权的密码！
+   # password: auenahfcnbzydhgj #不是QQ邮箱的登录密码，而是第三方客户端登录QQ邮箱授权的密码！
     protocol: smtps
     default-encoding: UTF-8
 
