@@ -80,7 +80,7 @@ public class UserService implements CommunityConstant {
         }
         // 注册用户
         user.setSalt(CommunityUtil.generateUUID().substring(0,5));
-        user.setPassword(CommunityUtil.md5(user.getPassword())+user.getSalt());
+        user.setPassword(CommunityUtil.md5(user.getPassword()+user.getSalt()));
         user.setType(0);
         user.setStatus(0);
         user.setActivationCode(CommunityUtil.generateUUID());
@@ -133,7 +133,7 @@ public class UserService implements CommunityConstant {
             return map;
         }
         // 验证密码
-        password = CommunityUtil.md5(password)+ user.getSalt();
+        password = CommunityUtil.md5(password+ user.getSalt());
         if(!user.getPassword().equals(password)){
             map.put("passwordMsg","密码不正确");
             return map;
@@ -161,4 +161,7 @@ public class UserService implements CommunityConstant {
         return userMapper.updateHeader(userId,headerUrl);
     }
 
+    public User findUserByName(String username){
+        return userMapper.selectedByName(username);
+    }
 }

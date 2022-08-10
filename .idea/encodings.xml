@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/CommunityApplication.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/annotation/LoginRequired.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/aspect/AlphaAspect.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/aspect/ServiceLogAspect.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/config/KaptchaConfig.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/config/WebMvcConfig.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/AlphaController.java" charset="UTF-8" />
@@ -10,21 +12,26 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/DiscussPostController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/HomeController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/LoginController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/MessageController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/UserController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/advice/ExceptionAdvice.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/interceptor/AlphaInterceptor.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/interceptor/LoginTicketInterceptor.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/dao/AlphaMyBatisImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/dao/CommentMapper.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/dao/DiscussPostMapper.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/dao/LoginTicketMapper.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/dao/MessageMapper.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/dao/UserMapper.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/entity/Comment.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/entity/DiscussPost.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/entity/LoginTicket.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/entity/Message.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/entity/User.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/AlphaService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/CommentService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/DiscussPostService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/MessageService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/UserService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/util/CommunityConstant.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/util/CommunityUtil.java" charset="UTF-8" />
@@ -37,7 +44,6 @@
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/CommunityApplicationTests.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/LoggerTests.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/MailTests.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/MapperTests.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/SensitiveTests.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/TransactionTests.java" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
