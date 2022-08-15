@@ -2,7 +2,10 @@ package com.nowcoder.community.controller;
 
 import com.nowcoder.community.annotation.LoginRequired;
 import com.nowcoder.community.entity.User;
+import com.nowcoder.community.service.FollowService;
+import com.nowcoder.community.service.LikeService;
 import com.nowcoder.community.service.UserService;
+import com.nowcoder.community.util.CommunityConstant;
 import com.nowcoder.community.util.CommunityUtil;
 import com.nowcoder.community.util.HostHolder;
 import org.apache.commons.lang3.StringUtils;
@@ -10,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +35,7 @@ import java.io.OutputStream;
  */
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController implements CommunityConstant {
     private static final Logger logger= LoggerFactory.getLogger(UserController.class);
 
     @Value("${community.path.upload}")
@@ -44,7 +48,10 @@ public class UserController {
     UserService userService;
     @Autowired
     private HostHolder hostHolder;
-
+    @Autowired
+    private LikeService likeService;
+    @Autowired
+    private FollowService followService;
     @LoginRequired
     @RequestMapping(path = "/setting",method = RequestMethod.GET)
     public String getSettingPage(){
@@ -78,7 +85,7 @@ public class UserController {
         // 更新当前用户的头像的路径(WEB访问路径)
         // http://localhost:8080/community/user/header/xxx.png
         User user=hostHolder.getUser();
-        String headerUrl=domain+contextPath+"/user/header"+filename;
+        String headerUrl=domain+contextPath+"/user/header/"+filename;
         userService.updateHeader(user.getId(),headerUrl);
         return "redirect:/index";
     }
@@ -102,5 +109,31 @@ public class UserController {
         } catch (IOException e) {
             logger.error("读取头像失败："+e.getMessage());
         }
+    }
+    // 个人主页
+    @RequestMapping(path = "/profile/{userId}",method = RequestMethod.GET)
+    public String getProfilePage(@PathVariable("userId") int userId,Model model){
+        User user = userService.findUserById(userId);
+        if(user==null){
+            throw new RuntimeException("该用户不存在！");
+        }
+        // 用户
+        model.addAttribute("user",user);
+        // 点赞数量
+        int likeCount=likeService.findUserLikeCount(userId);
+        model.addAttribute("likeCount",likeCount);
+        // 关注数量
+        long followeeCount = followService.findFolloweeCount(userId, ENTITY_TYPE_USER);
+        model.addAttribute("followeeCount",followeeCount);
+        // 粉丝数量
+        long followerCount = followService.findFollowerCount(ENTITY_TYPE_USER, userId);
+        model.addAttribute("followerCount",followerCount);
+        // 是否已关注
+        boolean hasFollowed=false;
+        if(hostHolder.getUser()!=null){
+            hasFollowed=followService.hasFollowed(hostHolder.getUser().getId(),ENTITY_TYPE_USER,userId);
+        }
+        model.addAttribute("hasFollowed",hasFollowed);
+        return "/site/profile";
     }
 }

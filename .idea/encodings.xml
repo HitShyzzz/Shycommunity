@@ -6,11 +6,14 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/aspect/AlphaAspect.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/aspect/ServiceLogAspect.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/config/KaptchaConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/config/RedisConfig.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/config/WebMvcConfig.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/AlphaController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/CommentController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/DiscussPostController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/FollowController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/HomeController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/LikeController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/LoginController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/MessageController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/controller/UserController.java" charset="UTF-8" />
@@ -31,6 +34,8 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/AlphaService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/CommentService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/DiscussPostService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/FollowService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/LikeService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/MessageService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/service/UserService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/util/CommunityConstant.java" charset="UTF-8" />
@@ -38,12 +43,16 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/util/CookieUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/util/HostHolder.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/util/MailClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/util/RedisKeyUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/nowcoder/community/util/SensitiveFilter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/js/discuss.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/js/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/BlockingQueueTest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/CommunityApplicationTests.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/LoggerTests.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/MailTests.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/RedisTests.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/SensitiveTests.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/nowcoder/community/TransactionTests.java" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
