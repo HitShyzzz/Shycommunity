@@ -32,4 +32,8 @@ public class TransactionTests {
         Object obj = alphaService.save2();
         System.out.println(obj);
     }
+    @Test
+    public void test(){
+        System.out.println(1111);
+    }
 }
