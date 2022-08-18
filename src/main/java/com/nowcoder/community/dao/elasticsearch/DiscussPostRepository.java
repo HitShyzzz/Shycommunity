@@ -1,7 +1,8 @@
 package com.nowcoder.community.dao.elasticsearch;
 
 import com.nowcoder.community.entity.DiscussPost;
-import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+//import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository;
  * @Date: 2022/08/16/23:43
  * @Description:
  */
-@Repository
-public interface DiscussPostRepository extends ElasticsearchRepository<DiscussPost,Integer> {
-
-}
+//@Repository
+//public interface DiscussPostRepository extends ElasticsearchRepository<DiscussPost,Integer> {
+//
+//}

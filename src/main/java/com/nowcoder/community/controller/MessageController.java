@@ -157,8 +157,8 @@ public class MessageController implements CommunityConstant {
             messageVO.put("postId",data.get("postId"));
             int count= messageService.findNoticeCount(user.getId(),TOPIC_COMMIT);
             messageVO.put("count",count);
-            int unRead= messageService.findNoticeUnreadCount(user.getId(),TOPIC_COMMIT);
-            messageVO.put("unRead",unRead);
+            int unread= messageService.findNoticeUnreadCount(user.getId(),TOPIC_COMMIT);
+            messageVO.put("unread",unread);
             model.addAttribute("commentNotice",messageVO);
         }
         // 查询点赞类的通知
@@ -174,8 +174,8 @@ public class MessageController implements CommunityConstant {
             messageVO.put("postId",data.get("postId"));
             int count= messageService.findNoticeCount(user.getId(),TOPIC_LIKE);
             messageVO.put("count",count);
-            int unRead= messageService.findNoticeUnreadCount(user.getId(),TOPIC_LIKE);
-            messageVO.put("unRead",unRead);
+            int unread= messageService.findNoticeUnreadCount(user.getId(),TOPIC_LIKE);
+            messageVO.put("unread",unread);
             model.addAttribute("LikeNotice",messageVO);
         }
         // 查询关注类的通知
@@ -190,8 +190,8 @@ public class MessageController implements CommunityConstant {
             messageVO.put("entityId",data.get("entityId"));
             int count= messageService.findNoticeCount(user.getId(),TOPIC_FOLLOW);
             messageVO.put("count",count);
-            int unRead= messageService.findNoticeUnreadCount(user.getId(),TOPIC_FOLLOW);
-            messageVO.put("unRead",unRead);
+            int unread= messageService.findNoticeUnreadCount(user.getId(),TOPIC_FOLLOW);
+            messageVO.put("unread",unread);
             model.addAttribute("followNotice",messageVO);
         }
         // 查询未读消息数量
