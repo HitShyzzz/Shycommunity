@@ -1,128 +1,161 @@
-# ServerProperties类
-server:
-  port: 8080
-  servlet:
-    context-path: /community
-    encoding:
-      charset: UTF-8
-      force: true
-      enabled: true
-
-#把thymeleaf默认的缓存关闭
-# ThymeleafProperties类
+#profile
 spring:
-  thymeleaf:
-    cache: false
-# 数据库连接池
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
-    username: root
-    password: root
-    type: com.zaxxer.hikari.HikariDataSource
-    hikari:
-      maximum-pool-size: 15
-      minimum-idle: 5
-      idle-timeout: 30000
-#邮箱设置 MailProperties
-  mail:
-    host: smtp.qq.com
-    port: 465
-    username: 2497141901@qq.com
-   # password: auenahfcnbzydhgj #不是QQ邮箱的登录密码，而是第三方客户端登录QQ邮箱授权的密码！
-    protocol: smtps
-    default-encoding: UTF-8
-    #RedisProperties
-  redis:
-    database: 11
-    host: localhost
-    port: 6379
-  #kafkaProperties
-  kafka:
-    bootstrap-servers: localhost:9092
-    consumer:
-      group-id: test-consumer-group
-      enable-auto-commit: true
-      auto-commit-interval: 3000
-  #ElasticsearchProperties
-  data:
-      elasticsearch:
-        cluster-name: nowcoder
-        cluster-nodes: 127.0.0.1:9300
-  # TaskExecutionProperties
-  task:
-    execution:
-      pool:
-        core-size: 5
-        max-size: 15
-        queue-capacity: 100
-  #TaskSchedulingProperties
-    scheduling:
-      pool:
-        size: 5
-  #QuartzProperties
-    # quartz 调度器配置
-  quartz:
-      job-store-type: jdbc #数据持久化方式，可选值：MEMORY、JDBC
-      #auto-startup: true   #初始化后是否自动启动计划程序,默认为  true
-     # overwrite-existing-jobs: true #配置的作业是否应覆盖现有的作业定义
-      scheduler-name: communityScheduler # 计划程序的名称
-      #startup-delay: 10s #初始化完成后启动计划程序的延迟时间，默认为 0 秒
-      #wait-for-jobs-to-complete-on-shutdown: false # 关闭时是否等待正在运行的作业完成
-
-      #对于 Quartz 自带的配置，即可以使用 quartz 自己的 quartz.properties 配置文件进行配置，也可以直接配置在 properties 属性下，它是一个 map
-      #quartz 完整配置：https://wangmaoxiong.blog.csdn.net/article/details/105057405#quartz.properties%20%E4%B8%8E%20QuartzProperties%20%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9
-      properties:
-        org:
-          quartz:
-            jobStore:
-              #如果不需要将调度命令（例如添加和删除triggers）绑定到其他事务，那么可以通过使用 JobStoreTX 管理事务
-              class: org.springframework.scheduling.quartz.LocalDataSourceJobStore
-              #设置数据库驱动代理，StdJDBCDelegate 是一个使用 JDBC 代码来执行其工作的代理. 其他代理可以在"org.quartz.impl.jdbcjobstore“包或其子包中找到
-              driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
-              #通知 JobStore 使用的表前缀
-              #tablePrefix: QRTZ_
-              #misfireThreshold: 12000
-              #是否加入集群
-              isClustered: true
-              ##容许的最大作业延长时间
-#              clusterCheckinInterval: 20000
-#              maxMisfiresToHandleAtATime: 1
-#              txIsolationLevelSerializable: false
-            threadPool:
-              class: org.quartz.simpl.SimpleThreadPool  #quartz 使用的线程池类型，org.quartz.spi.ThreadPool
-              threadCount: 5   #线程池中的线程总个数，表示最多可以同时执行的个任务/作业个数
-             # threadPriority: 5   #线程优先级
-              #threadsInheritContextClassLoaderOfInitializingThread: true #线程继承初始化线程的上下文类加载器
-            scheduler:
-              #quartz 调度器实例名称，相当于微服务架构中的微服务名称，instanceId 相当于微服务多实例时的节点 id
-              #如果指定了 spring.quartz.scheduler-name 属性，则优先以它为准，此时 instanceName 不会生效.
-             # instanceName: communityScheduler
-              #实例id设置为自动获取，集群下的所有调度器实例id 必须为唯一.
-              instanceId: AUTO
-# mybatis匹配
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.nowcoder.community.entity
-  configuration:
-    use-generated-keys: true
-    map-underscore-to-camel-case: true
-#日志
+  profiles:
+    active: produce
+#logback
 logging:
-  level:
-    com.nowcoder.community: debug
-#community
-community:
-  path:
-    domain: http://localhost:8080
-    upload: d:/tool/source/data/upload
-# wk配置
-wk:
-  image:
-        command: d:/tool/wkhtmltopdf/bin/wkhtmltoimage
-        storage: d:/tool/source/data/wk-images
+  config: classpath:logback-spring-${spring.profiles.active}.xml
 
-
-
-
-
+## ServerProperties类
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /community
+#    encoding:
+#      charset: UTF-8
+#      force: true
+#      enabled: true
+#
+##把thymeleaf默认的缓存关闭
+## ThymeleafProperties类
+#spring:
+#  thymeleaf:
+#    cache: false
+## 数据库连接池
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+#    username: root
+#    password: root
+#    type: com.zaxxer.hikari.HikariDataSource
+#    hikari:
+#      maximum-pool-size: 15
+#      minimum-idle: 5
+#      idle-timeout: 30000
+##邮箱设置 MailProperties
+#  mail:
+#    host: smtp.qq.com
+#    port: 465
+#    username: 2497141901@qq.com
+#   # password: auenahfcnbzydhgj #不是QQ邮箱的登录密码，而是第三方客户端登录QQ邮箱授权的密码！
+#    protocol: smtps
+#    default-encoding: UTF-8
+#    #RedisProperties
+#  redis:
+#    database: 11
+#    host: localhost
+#    port: 6379
+#  #kafkaProperties
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#    consumer:
+#      group-id: test-consumer-group
+#      enable-auto-commit: true
+#      auto-commit-interval: 3000
+#  #ElasticsearchProperties
+#  data:
+#      elasticsearch:
+#        cluster-name: nowcoder
+#        cluster-nodes: 127.0.0.1:9300
+#  # TaskExecutionProperties
+#  task:
+#    execution:
+#      pool:
+#        core-size: 5
+#        max-size: 15
+#        queue-capacity: 100
+#  #TaskSchedulingProperties
+#    scheduling:
+#      pool:
+#        size: 5
+#  #QuartzProperties
+#    # quartz 调度器配置
+#  quartz:
+#      job-store-type: jdbc #数据持久化方式，可选值：MEMORY、JDBC
+#      #auto-startup: true   #初始化后是否自动启动计划程序,默认为  true
+#     # overwrite-existing-jobs: true #配置的作业是否应覆盖现有的作业定义
+#      scheduler-name: communityScheduler # 计划程序的名称
+#      #startup-delay: 10s #初始化完成后启动计划程序的延迟时间，默认为 0 秒
+#      #wait-for-jobs-to-complete-on-shutdown: false # 关闭时是否等待正在运行的作业完成
+#
+#      #对于 Quartz 自带的配置，即可以使用 quartz 自己的 quartz.properties 配置文件进行配置，也可以直接配置在 properties 属性下，它是一个 map
+#      #quartz 完整配置：https://wangmaoxiong.blog.csdn.net/article/details/105057405#quartz.properties%20%E4%B8%8E%20QuartzProperties%20%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9
+#      properties:
+#        org:
+#          quartz:
+#            jobStore:
+#              #如果不需要将调度命令（例如添加和删除triggers）绑定到其他事务，那么可以通过使用 JobStoreTX 管理事务
+#              class: org.springframework.scheduling.quartz.LocalDataSourceJobStore
+#              #设置数据库驱动代理，StdJDBCDelegate 是一个使用 JDBC 代码来执行其工作的代理. 其他代理可以在"org.quartz.impl.jdbcjobstore“包或其子包中找到
+#              driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+#              #通知 JobStore 使用的表前缀
+#              #tablePrefix: QRTZ_
+#              #misfireThreshold: 12000
+#              #是否加入集群
+#              isClustered: true
+#              ##容许的最大作业延长时间
+##              clusterCheckinInterval: 20000
+##              maxMisfiresToHandleAtATime: 1
+##              txIsolationLevelSerializable: false
+#            threadPool:
+#              class: org.quartz.simpl.SimpleThreadPool  #quartz 使用的线程池类型，org.quartz.spi.ThreadPool
+#              threadCount: 5   #线程池中的线程总个数，表示最多可以同时执行的个任务/作业个数
+#             # threadPriority: 5   #线程优先级
+#              #threadsInheritContextClassLoaderOfInitializingThread: true #线程继承初始化线程的上下文类加载器
+#            scheduler:
+#              #quartz 调度器实例名称，相当于微服务架构中的微服务名称，instanceId 相当于微服务多实例时的节点 id
+#              #如果指定了 spring.quartz.scheduler-name 属性，则优先以它为准，此时 instanceName 不会生效.
+#             # instanceName: communityScheduler
+#              #实例id设置为自动获取，集群下的所有调度器实例id 必须为唯一.
+#              instanceId: AUTO
+## mybatis匹配
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.nowcoder.community.entity
+#  configuration:
+#    use-generated-keys: true
+#    map-underscore-to-camel-case: true
+##日志
+#logging:
+#  level:
+#    com.nowcoder.community: debug
+##community
+#community:
+#  path:
+#    domain: http://localhost:8080
+#    upload: d:/tool/source/data/upload
+## wk配置
+#wk:
+#  image:
+#        command: d:/tool/wkhtmltopdf/bin/wkhtmltoimage
+#        storage: d:/tool/source/data/wk-images
+## qiniu
+#qiniu:
+#  key:
+#    access: OjDQWVPnG6BgcYLiYMsEPOJM4hJIoLHdx_CuXuC6
+#    secret: Ayni-HDvd42npZKZLXTRzdwZ5oSW4KNaOHu1sbMP
+#  bucket:
+#    header:
+#      name: shycommunity-header
+#      url: rgu8h2ghs.hb-bkt.clouddn.com
+#    share:
+#      name: shycommunity-share
+#      url: rgu8b1kqd.hb-bkt.clouddn.com
+##caffeine
+#caffeine:
+#  posts:
+#    max-size: 15
+#    expire-seconds: 180
+##actuator
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#        exclude: caches
+#
+#
+#
+#
+#
+#
