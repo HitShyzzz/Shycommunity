@@ -1,4 +1,4 @@
-package com.nowcoder.community.config;
+package com.nowcoder.community.entity.config;
 
 import com.nowcoder.community.quratz.AlphaJob;
 import com.nowcoder.community.quratz.PostScoreRefreshJob;

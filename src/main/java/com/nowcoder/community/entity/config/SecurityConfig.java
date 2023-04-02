@@ -1,4 +1,4 @@
-package com.nowcoder.community.config;
+package com.nowcoder.community.entity.config;
 
 import com.nowcoder.community.util.CommunityConstant;
 import com.nowcoder.community.util.CommunityUtil;
@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -18,7 +19,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter implements CommunityConstant {
+public class SecurityConfig extends  WebSecurityConfigurerAdapter implements CommunityConstant {
 
     @Override
     public void configure(WebSecurity web) throws Exception {

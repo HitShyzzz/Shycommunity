@@ -1,4 +1,4 @@
-package com.nowcoder.community.config;
+package com.nowcoder.community.entity.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;

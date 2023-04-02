@@ -25,8 +25,7 @@ public class DatabaseEndpoint {
     private static final Logger logger= LoggerFactory.getLogger(DatabaseEndpoint.class);
     @Autowired
     private DataSource dataSource;
-    // 只能通过get请求来访问
-    @ReadOperation
+    @ReadOperation // 只能通过get请求来访问
     public String checkConnection(){
         try(
                 Connection conn= dataSource.getConnection();

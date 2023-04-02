@@ -1,8 +1,6 @@
 package com.nowcoder.community.service;
 
-import com.github.benmanes.caffeine.cache.CacheLoader;
-import com.github.benmanes.caffeine.cache.Caffeine;
-import com.github.benmanes.caffeine.cache.LoadingCache;
+import com.github.benmanes.caffeine.cache.*;
 import com.nowcoder.community.dao.DiscussPostMapper;
 import com.nowcoder.community.entity.DiscussPost;
 import com.nowcoder.community.util.SensitiveFilter;
@@ -38,6 +36,7 @@ public class DiscussPostService {
     @Value("${caffeine.posts.expire-seconds}")
     private int expireSeconds;
     // Caffeine核心接口：Cache,LoadingCache,AsyncLoadingCache
+    //Caffeine
     // 帖子列表缓存
     private LoadingCache<String,List<DiscussPost>> postListCache;
     // 帖子总数缓存

@@ -1,4 +1,4 @@
-package com.nowcoder.community.config;
+package com.nowcoder.community.entity.config;
 
 import com.nowcoder.community.controller.interceptor.*;
 import org.springframework.beans.factory.annotation.Autowired;
